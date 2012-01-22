@@ -51,16 +51,46 @@ public class DefaultHandler2 extends DefaultHandler
 			System.out.println("ID : " + tempValue);
 
 		}
-		if (bHeight && bLeafDetails == false)
+		if (bHeight)
 		{
 			tempOakVO.setHeight(Integer.parseInt(tempValue));
 			System.out.println("Height : " + tempValue);
 
 		}
-		if (bWidth && bLeafDetails == false)
+		if (bWidth) // old: bWidth && bLeafDetails == false
 		{
 			tempOakVO.setWidth(Integer.parseInt(tempValue));
 			System.out.println("Width : " + tempValue);
+
+		}
+		if (bAge)
+		{
+			tempOakVO.setAge(Integer.parseInt(tempValue));
+			System.out.println("Age : " + tempValue);
+
+		}
+		if (bLeafCount)
+		{
+			leavesNumber = Integer.parseInt(tempValue);
+			System.out.println("LeavesNumber : " + tempValue);
+
+		}
+		if (bColor)
+		{
+			tempOakLeafVO.setColor(tempValue);
+			System.out.println("Color : " + tempValue);
+
+		}
+		if (bHeightLeaf)
+		{
+			tempOakLeafVO.setHeight(Integer.parseInt(tempValue));
+			System.out.println("LeafHeight : " + tempValue);
+
+		}
+		if (bWidthLeaf)
+		{
+			tempOakLeafVO.setWidth(Integer.parseInt(tempValue));
+			System.out.println("LeafWidth : " + tempValue);
 
 		}
 
