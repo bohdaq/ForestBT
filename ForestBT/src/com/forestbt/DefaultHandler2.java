@@ -1,8 +1,5 @@
 package com.forestbt;
 
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -39,26 +36,6 @@ public class DefaultHandler2 extends DefaultHandler
 
 	GroundVO forest = new GroundVO();
 
-	public DefaultHandler2()
-	{
-		this("src/com/forestbt/assets/xml/oak_tree.xml");
-	}
-
-	public DefaultHandler2(String path)
-	{
-		try
-		{
-
-			SAXParserFactory factory = SAXParserFactory.newInstance();
-			SAXParser saxParser = factory.newSAXParser();
-			DefaultHandler2 handler = new DefaultHandler2();
-			saxParser.parse(path, handler);
-		} catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
-
 	@Override
 	public void characters(char[] ch, int start, int length)
 			throws SAXException
@@ -68,7 +45,7 @@ public class DefaultHandler2 extends DefaultHandler
 	@Override
 	public void endDocument() throws SAXException
 	{
-		System.out.println(bTree);
+		System.out.println("Document ended");
 	}
 
 	@Override
@@ -80,19 +57,46 @@ public class DefaultHandler2 extends DefaultHandler
 	@Override
 	public void startDocument() throws SAXException
 	{
+		System.out.println("Document started");
 	}
 
 	@Override
 	public void startElement(String uri, String localName, String qName,
 			Attributes attributes) throws SAXException
 	{
+		// TREE processing
 		if (qName.equalsIgnoreCase("TREE"))
 		{
 			bTree = true;
+			tempOakVO = new OakVO();
+			System.out.println("\nTree created");
 		}
 		if (qName.equalsIgnoreCase("ID"))
 		{
 			bId = true;
+			System.out.println("ID TRUE");
+		}
+		if (qName.equalsIgnoreCase("HEIGHT") && bLeafDetails == false)
+		{
+			bHeight = true;
+			System.out.println("HEIGHT TRUE");
+		}
+		if (qName.equalsIgnoreCase("WIDTH") && bLeafDetails == false)
+		{
+			bWidth = true;
+			System.out.println("WIDTH TRUE");
+		}
+		if (qName.equalsIgnoreCase("AGE"))
+		{
+			bAge = true;
+			System.out.println("AGE TRUE");
+		}
+
+		// LEAF processing
+		if (qName.equalsIgnoreCase("LEAFDETAILS"))
+		{
+			bLeafDetails = true;
+			System.out.println("LEAFDETAILS TRUE");
 		}
 	}
 
