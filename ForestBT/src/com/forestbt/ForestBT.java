@@ -17,7 +17,8 @@ public class ForestBT
 		OakLeafVO oakleaf = new OakLeafVO(0, "00ff00", 10, 5);
 		oak.addLeaf(0, oakleaf);
 		ground.addTree(0, oak);
-		System.out.println("All done");
+		System.out.println("All done ALOH A");
+		DefaultHandler2 xmlhandler = new DefaultHandler2();
 	}
 
 }
