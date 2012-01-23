@@ -1,4 +1,4 @@
-package com.forestbt;
+package com.forestbt.xml;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -9,7 +9,7 @@ import com.forestbt.vo.GroundVO;
 import com.forestbt.vo.OakLeafVO;
 import com.forestbt.vo.OakVO;
 
-public class DefaultHandler2 extends DefaultHandler
+public class ForestHandler extends DefaultHandler
 {
 	// boolean vars are used for understanding what to parse
 

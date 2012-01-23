@@ -6,6 +6,7 @@ import javax.xml.parsers.SAXParserFactory;
 import com.forestbt.vo.GroundVO;
 import com.forestbt.vo.OakLeafVO;
 import com.forestbt.vo.OakVO;
+import com.forestbt.xml.ForestHandler;
 
 public class ForestBT
 {
@@ -26,7 +27,7 @@ public class ForestBT
 
 			SAXParserFactory factory = SAXParserFactory.newInstance();
 			SAXParser saxParser = factory.newSAXParser();
-			DefaultHandler2 handler = new DefaultHandler2();
+			ForestHandler handler = new ForestHandler();
 			saxParser
 					.parse("src/com/forestbt/assets/xml/oak_tree.xml", handler);
 		} catch (Exception e)
