@@ -17,10 +17,10 @@ public class ForestBT
 	{
 		GroundVO ground = new GroundVO();
 		OakVO oak = new OakVO();
-		OakLeafVO oakleaf = new OakLeafVO(0, "00ff00", 10, 5);
+		OakLeafVO oakleaf = new OakLeafVO();
 		oak.addLeaf(0, oakleaf);
 		ground.addTree(0, oak);
-		System.out.println("All done ALOHA");
+		System.out.println("Parsing...");
 		try
 		{
 
