@@ -11,6 +11,7 @@ import com.forestbt.vo.OakVO;
 
 public class ForestHandler extends DefaultHandler
 {
+
 	// boolean vars are used for understanding what to parse
 
 	private boolean bTree = false;
@@ -118,7 +119,7 @@ public class ForestHandler extends DefaultHandler
 			throws SAXException
 	{
 		// TREE processing
-		if (qName.equalsIgnoreCase(ForestElements.tree))
+		if (qName.equalsIgnoreCase(ForestElements.TREE))
 		{
 			forest.addTree(sum, tempOakVO);
 			sum++;
@@ -126,41 +127,41 @@ public class ForestHandler extends DefaultHandler
 			tempOakVO = null;
 			System.out.println("Tree added to forest\nTree deleted.");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.id))
+		if (qName.equalsIgnoreCase(ForestElements.ID))
 		{
 			bId = false;
 			// System.out.println("ID FALSE");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.height)
+		if (qName.equalsIgnoreCase(ForestElements.HEIGHT)
 				&& bLeafDetails == false)
 		{
 			bHeight = false;
 			// System.out.println("HEIGHT FALSE");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.width)
+		if (qName.equalsIgnoreCase(ForestElements.WIDTH)
 				&& bLeafDetails == false)
 		{
 			bWidth = false;
 			// System.out.println("WIDTH FALSE");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.age))
+		if (qName.equalsIgnoreCase(ForestElements.AGE))
 		{
 			bAge = false;
 			// System.out.println("AGE FALSE");
 		}
 
 		// LEAF processing
-		if (qName.equalsIgnoreCase(ForestElements.leafDetails))
+		if (qName.equalsIgnoreCase(ForestElements.LEAFDETAILS))
 		{
 			bLeafDetails = false;
 			// System.out.println("LEAFDETAILS FALSE");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.leafCount))
+		if (qName.equalsIgnoreCase(ForestElements.LEAFCOUNT))
 		{
 			bLeafCount = false;
 			// System.out.println("LEAFCOUNT FALSE ");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.leaf))
+		if (qName.equalsIgnoreCase(ForestElements.LEAF))
 		{
 			for (int i = 0; i < leavesNumber; i++)
 			{
@@ -171,18 +172,18 @@ public class ForestHandler extends DefaultHandler
 			tempOakLeafVO = null;
 			System.out.println("LEAF  DELETED");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.color))
+		if (qName.equalsIgnoreCase(ForestElements.COLOR))
 		{
 			bColor = false;
 			// System.out.println("COLOR  FALSE");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.heightLeaf)
+		if (qName.equalsIgnoreCase(ForestElements.HEIGHTLEAF)
 				&& bLeafDetails == true)
 		{
 			bHeightLeaf = false;
 			// System.out.println("HEIGHTLEAF  FALSE");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.widthLeaf)
+		if (qName.equalsIgnoreCase(ForestElements.WIDTHLEAF)
 				&& bLeafDetails == true)
 		{
 			bWidthLeaf = false;
@@ -201,64 +202,64 @@ public class ForestHandler extends DefaultHandler
 			Attributes attributes) throws SAXException
 	{
 		// TREE processing
-		if (qName.equalsIgnoreCase(ForestElements.tree))
+		if (qName.equalsIgnoreCase(ForestElements.TREE))
 		{
 			bTree = true;
 			tempOakVO = new OakVO();
 			System.out.println("\nTree created");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.id))
+		if (qName.equalsIgnoreCase(ForestElements.ID))
 		{
 			bId = true;
 			// System.out.println("ID TRUE");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.height)
+		if (qName.equalsIgnoreCase(ForestElements.HEIGHT)
 				&& bLeafDetails == false)
 		{
 			bHeight = true;
 			// System.out.println("HEIGHT TRUE");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.width)
+		if (qName.equalsIgnoreCase(ForestElements.WIDTH)
 				&& bLeafDetails == false)
 		{
 			bWidth = true;
 			// System.out.println("WIDTH TRUE");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.age))
+		if (qName.equalsIgnoreCase(ForestElements.AGE))
 		{
 			bAge = true;
 			// System.out.println("AGE TRUE");
 		}
 
 		// LEAF processing
-		if (qName.equalsIgnoreCase(ForestElements.leafDetails))
+		if (qName.equalsIgnoreCase(ForestElements.LEAFDETAILS))
 		{
 			bLeafDetails = true;
 			// System.out.println("LEAFDETAILS TRUE");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.leafCount))
+		if (qName.equalsIgnoreCase(ForestElements.LEAFCOUNT))
 		{
 			bLeafCount = true;
 			// System.out.println("LEAFCOUNT TRUE ");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.leaf))
+		if (qName.equalsIgnoreCase(ForestElements.LEAF))
 		{
 			bLeaf = true;
 			tempOakLeafVO = new OakLeafVO();
 			System.out.println("LEAF  CREATED");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.color))
+		if (qName.equalsIgnoreCase(ForestElements.COLOR))
 		{
 			bColor = true;
 			// System.out.println("COLOR  TRUE");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.heightLeaf)
+		if (qName.equalsIgnoreCase(ForestElements.HEIGHTLEAF)
 				&& bLeafDetails == true)
 		{
 			bHeightLeaf = true;
 			// System.out.println("HEIGHTLEAF  TRUE");
 		}
-		if (qName.equalsIgnoreCase(ForestElements.widthLeaf)
+		if (qName.equalsIgnoreCase(ForestElements.WIDTHLEAF)
 				&& bLeafDetails == true)
 		{
 			bWidthLeaf = true;
