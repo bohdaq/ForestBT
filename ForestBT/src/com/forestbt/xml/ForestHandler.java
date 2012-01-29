@@ -50,58 +50,12 @@ public class ForestHandler extends DefaultHandler
 	{
 		if (CURRENT_LEVEL == LEVEL_TREE)
 		{
-			if (qName.equalsIgnoreCase(ForestElements.AGE))
-			{
-				tempOakVO.setAge(Integer.parseInt(tempValue.toString()));
-				System.out.println("Age: " + tempValue);
-			}
-			if (qName.equalsIgnoreCase(ForestElements.HEIGHT))
-			{
-				tempOakVO.setHeight(Integer.parseInt(tempValue.toString()));
-				System.out.println("Height: " + tempValue);
-			}
-			if (qName.equalsIgnoreCase(ForestElements.ID))
-			{
-				tempOakVO.setId(Long.parseLong(tempValue.toString()));
-				System.out.println("ID: " + tempValue);
-			}
-			if (qName.equalsIgnoreCase(ForestElements.WIDTH))
-			{
-				tempOakVO.setWidth(Integer.parseInt(tempValue.toString()));
-				System.out.println("Width: " + tempValue);
-			}
-			if (qName.equalsIgnoreCase(ForestElements.LEAFCOUNT))
-			{
-				leavesNumber = Integer.parseInt(tempValue.toString());
-				System.out.println("Number of leaves: " + tempValue);
-			}
+			parseTree(qName);
 		}
 
 		if (CURRENT_LEVEL == LEVEL_LEAF)
 		{
-			if (qName.equalsIgnoreCase(ForestElements.COLOR))
-			{
-				tempOakLeafVO.setColor(tempValue.toString());
-				System.out.println("Color: " + tempValue);
-			}
-			if (qName.equalsIgnoreCase(ForestElements.HEIGHT))
-			{
-				tempOakLeafVO.setHeight(Integer.parseInt(tempValue.toString()));
-				System.out.println("Height: " + tempValue);
-			}
-			if (qName.equalsIgnoreCase(ForestElements.WIDTH))
-			{
-				tempOakLeafVO.setWidth(Integer.parseInt(tempValue.toString()));
-				System.out.println("Width: " + tempValue);
-
-				// adding leaf to tree numberLeaf times
-				for (int i = 0; i < leavesNumber; i++)
-					tempOakVO.addLeaf(i, tempOakLeafVO);
-
-				// adding tree to the forest
-				forest.addTree(sum, tempOakVO);
-				sum++;
-			}
+			parseLeaf(qName);
 		}
 	}
 
@@ -124,6 +78,65 @@ public class ForestHandler extends DefaultHandler
 			System.out.println("LEAF  CREATED");
 		}
 
+	}
+
+	private void parseTree(String qName)
+	{
+
+		if (qName.equalsIgnoreCase(ForestElements.AGE))
+		{
+			tempOakVO.setAge(Integer.parseInt(tempValue.toString().trim()));
+			System.out.println("Age: " + tempValue);
+		}
+		if (qName.equalsIgnoreCase(ForestElements.HEIGHT))
+		{
+			tempOakVO.setHeight(Integer.parseInt(tempValue.toString().trim()));
+			System.out.println("Height: " + tempValue);
+		}
+		if (qName.equalsIgnoreCase(ForestElements.ID))
+		{
+			tempOakVO.setId(Long.parseLong(tempValue.toString().trim()));
+			System.out.println("ID: " + tempValue);
+		}
+		if (qName.equalsIgnoreCase(ForestElements.WIDTH))
+		{
+			tempOakVO.setWidth(Integer.parseInt(tempValue.toString().trim()));
+			System.out.println("Width: " + tempValue);
+		}
+		if (qName.equalsIgnoreCase(ForestElements.LEAFCOUNT))
+		{
+			leavesNumber = Integer.parseInt(tempValue.toString().trim());
+			System.out.println("Number of leaves: " + tempValue);
+		}
+	}
+
+	private void parseLeaf(String qName)
+	{
+		if (qName.equalsIgnoreCase(ForestElements.COLOR))
+		{
+			tempOakLeafVO.setColor(tempValue.toString().trim());
+			System.out.println("Color: " + tempValue);
+		}
+		if (qName.equalsIgnoreCase(ForestElements.HEIGHT))
+		{
+			tempOakLeafVO.setHeight(Integer.parseInt(tempValue.toString()
+					.trim()));
+			System.out.println("Height: " + tempValue);
+		}
+		if (qName.equalsIgnoreCase(ForestElements.WIDTH))
+		{
+			tempOakLeafVO.setWidth(Integer
+					.parseInt(tempValue.toString().trim()));
+			System.out.println("Width: " + tempValue);
+
+			// adding leaf to tree numberLeaf times
+			for (int i = 0; i < leavesNumber; i++)
+				tempOakVO.addLeaf(i, tempOakLeafVO);
+
+			// adding tree to the forest
+			forest.addTree(sum, tempOakVO);
+			sum++;
+		}
 	}
 
 }
