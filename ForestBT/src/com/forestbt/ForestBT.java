@@ -27,9 +27,12 @@ public class ForestBT
 
 			SAXParserFactory factory = SAXParserFactory.newInstance();
 			SAXParser saxParser = factory.newSAXParser();
+			long beforeTime = System.currentTimeMillis();
 			ForestHandler handler = new ForestHandler();
 			saxParser
 					.parse("src/com/forestbt/assets/xml/oak_tree.xml", handler);
+			long afterTime = System.currentTimeMillis();
+			System.out.println("\nElapsed time:" + (afterTime - beforeTime));
 		} catch (Exception e)
 		{
 			e.printStackTrace();
