@@ -12,10 +12,9 @@ import com.forestbt.vo.OakVO;
 public class ForestHandler extends DefaultHandler
 {
 
-	// boolean vars are used for understanding what to parse
-
-	private boolean isTree = false;
-	private boolean isLeaf = false;
+	private int CURRENT_LEVEL = -1;
+	private final int LEVEL_TREE = 1;
+	private final int LEVEL_LEAF = 2;
 
 	// temp VO
 
@@ -49,7 +48,7 @@ public class ForestHandler extends DefaultHandler
 	public void endElement(String uri, String localName, String qName)
 			throws SAXException
 	{
-		if (isTree)
+		if (CURRENT_LEVEL == LEVEL_TREE)
 		{
 			if (qName.equalsIgnoreCase(ForestElements.AGE))
 			{
@@ -78,7 +77,7 @@ public class ForestHandler extends DefaultHandler
 			}
 		}
 
-		if (isLeaf)
+		if (CURRENT_LEVEL == LEVEL_LEAF)
 		{
 			if (qName.equalsIgnoreCase(ForestElements.COLOR))
 			{
@@ -112,21 +111,19 @@ public class ForestHandler extends DefaultHandler
 	{
 		tempValue.delete(0, tempValue.length());
 
-		// TREE processing
 		if (qName.equalsIgnoreCase(ForestElements.TREE))
 		{
-			isLeaf = false;
-			isTree = true;
+			CURRENT_LEVEL = LEVEL_TREE;
 			tempOakVO = new OakVO();
 			System.out.println("\nTree created");
 		}
 		if (qName.equalsIgnoreCase(ForestElements.LEAF))
 		{
-			isTree = false;
-			isLeaf = true;
+			CURRENT_LEVEL = LEVEL_LEAF;
 			tempOakLeafVO = new OakLeafVO();
 			System.out.println("LEAF  CREATED");
 		}
+
 	}
 
 }
