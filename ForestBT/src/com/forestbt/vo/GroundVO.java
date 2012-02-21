@@ -50,12 +50,6 @@ public class GroundVO implements Ground
 	}
 
 	@Override
-	public void removeTree(Tree tree)
-	{
-		treeList.remove(tree);
-	}
-
-	@Override
 	public void removeAllTrees()
 	{
 		treeList.clear();
@@ -71,6 +65,24 @@ public class GroundVO implements Ground
 	public void addTree(int index, Tree tree)
 	{
 		treeList.add(index, tree);
+	}
+
+	@Override
+	public void addTree(Tree tree)
+	{
+		treeList.add(tree);
+	}
+
+	@Override
+	public Tree getTree(long id)
+	{
+		return treeList.get((int) id);
+	}
+
+	@Override
+	public void removeTree(Tree id)
+	{
+		treeList.remove(id);
 	}
 
 }

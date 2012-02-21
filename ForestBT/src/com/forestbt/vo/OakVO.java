@@ -101,4 +101,16 @@ public class OakVO implements Tree
 		leafList.remove(leaf);
 	}
 
+	@Override
+	public void addLeaf(Leaf leaf)
+	{
+		leafList.add(leaf);
+	}
+
+	@Override
+	public Leaf getLeaf(long id)
+	{
+		return leafList.get((int) id);
+	}
+
 }

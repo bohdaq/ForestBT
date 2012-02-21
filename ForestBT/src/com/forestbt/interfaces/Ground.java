@@ -12,11 +12,15 @@ public interface Ground
 
 	int getFertility();
 
-	void removeTree(Tree tree);
-
 	void removeAllTrees();
 
 	void addTrees(List<Tree> trees);
 
 	void addTree(int index, Tree tree);
+
+	void addTree(Tree tree);
+
+	Tree getTree(long id);
+
+	void removeTree(Tree id);
 }

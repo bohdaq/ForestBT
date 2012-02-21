@@ -26,5 +26,9 @@ public interface Tree
 
 	void addLeaves(List<Leaf> leaves);
 
-	void removeLeaf(Leaf leaf);
+	void removeLeaf(Leaf id);
+
+	void addLeaf(Leaf leaf);
+
+	Leaf getLeaf(long id);
 }
